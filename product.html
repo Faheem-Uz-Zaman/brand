@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Product — VÉLTRO</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body>
+<div id="transition" class="transition"><div class="transition-title">VÉLTRO</div><div class="transition-line"></div></div>
+<header><a class="logo" href="index.html">VÉLTRO</a><nav><a href="index.html" data-transition="HOME" class="">Home</a>
+<a href="shop.html" data-transition="SHOP" class="active">Shop</a>
+<a href="about.html" data-transition="ABOUT" class="">About</a>
+<a href="contact.html" data-transition="CONTACT" class="">Contact</a></nav><div class="actions"><button>⌕</button><a href="cart.html" data-transition="BAG">Bag (<span data-cart-count>0</span>)</a></div></header>
+
+<main><section class="detail"><div id="detailImage" class="detail-image hoodie"></div><div class="detail-info"><p class="eyebrow">VÉLTRO ESSENTIALS</p><h1 id="productName">Essential Hoodie</h1><div class="price" id="productPrice">৳ 2,450</div><p class="detail-desc">A modern essential designed for everyday comfort. Premium cotton with a relaxed silhouette, clean finish and understated VÉLTRO detailing.</p><div class="option-label">Color</div><div class="sizes"><button class="size selected">Black</button><button class="size">Grey</button><button class="size">White</button></div><div class="option-label">Size</div><div class="sizes"><button class="size">S</button><button class="size selected">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div><button class="add-btn" id="detailAdd">ADD TO CART <span>→</span></button></div></section></main>
+<script>
+const q=new URLSearchParams(location.search),id=q.get("id")||"hoodie";
+const data={hoodie:{name:"Essential Hoodie",price:2450,cls:"hoodie"},tee:{name:"Classic Tee",price:1850,cls:"tee"}};
+const p=data[id]||data.hoodie; document.getElementById("productName").textContent=p.name;document.getElementById("productPrice").textContent="৳ "+p.price.toLocaleString();document.getElementById("detailImage").className="detail-image "+p.cls;document.getElementById("detailAdd").dataset.add=id;document.getElementById("detailAdd").addEventListener("click",()=>add(id));
+document.querySelectorAll(".size").forEach(x=>x.addEventListener("click",()=>{if(x.parentElement===document.querySelector(".sizes")){x.parentElement.querySelectorAll(".size").forEach(y=>y.classList.remove("selected"));x.classList.add("selected")}}));
+</script>
+<footer><span>© 2026 VÉLTRO</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></footer>
+<script src="script.js"></script></body></html>
